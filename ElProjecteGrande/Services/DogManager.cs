@@ -25,8 +25,9 @@ namespace ElProjecteGrande.Services
 
         public string GetDogBreed(string dogDataLink)
         {
+            int breedIndex = 4;
             var linkParts = dogDataLink.Split("/");
-            return linkParts[4];
+            return linkParts[breedIndex];
         }
     }
 }
