@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "3lWviDtiR3mbvDzlJ4hfMhHqJvI/BZMd2HdvAsIbNBMHPy334XU6JGyTn5CYjZLgokJaolQUWVn/pbvEiwGmww==",
+  "dgSpecHash": "NZq9c5FZ103euc6TK1FkwidCqQlhpWwiajqV0HfC/i0sMY7Li1oQNV5yIYqmMC4D7J1o0wrO28j7UzC1IbFGOg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\natal\\Documents\\projects\\1\\el-proyecte-grande-sprint-1-csharp-csupihun\\ElProjecteGrande\\ElProjecteGrande.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Advanced\\el-proyecte-grande-sprint-1-csharp-csupihun\\ElProjecteGrande\\ElProjecteGrande.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Csupi\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
