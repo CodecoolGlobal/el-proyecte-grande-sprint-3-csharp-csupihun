@@ -22,5 +22,11 @@ namespace ElProjecteGrande.Services
         {
             return JsonConvert.DeserializeObject<Dictionary<string, string>>(dogString);
         }
+
+        public string GetDogBreed(string dogDataLink)
+        {
+            var linkParts = dogDataLink.Split("/");
+            return linkParts[4];
+        }
     }
 }

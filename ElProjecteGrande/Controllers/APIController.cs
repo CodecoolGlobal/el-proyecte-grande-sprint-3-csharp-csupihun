@@ -21,6 +21,8 @@ namespace ElProjecteGrande.Controllers
             string url = "https://dog.ceo/api/breeds/image/random";
             var dogDataString = GetApiData(url);
             var dogData = DogManager.ParseDogData(dogDataString.Result);
+            string dogBreed = DogManager.GetDogBreed(dogData["message"]);
+            string dogPicture = dogData["message"];
             return Ok(dogData);
         }
 
