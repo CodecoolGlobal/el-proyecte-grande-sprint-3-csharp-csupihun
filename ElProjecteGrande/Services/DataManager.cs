@@ -17,10 +17,5 @@ namespace ElProjecteGrande.Services
                 return Singleton;
             }
         }
-
-        public Dictionary<string, string> ParseDogData(string dogString)
-        {
-            return JsonConvert.DeserializeObject<Dictionary<string, string>>(dogString);
-        }
     }
 }

@@ -8,16 +8,19 @@ namespace ElProjecteGrande.Controllers
     public class APIController : ControllerBase
     {
         public DataManager DataManager;
+        public DogManager DogManager;
         public APIController()
         {
+            DogManager = DogManager.GetInstance;
             DataManager = DataManager.GetInstance;
         }
 
-        [Route("getDog")]
-        public async Task<IActionResult> GetDog(string url)
+        [Route("getRandomDog")]
+        public async Task<IActionResult> GetRandomDog()
         {
+            string url = "https://dog.ceo/api/breeds/image/random";
             var dogDataString = GetApiData(url);
-            var dogData = DataManager.ParseDogData(dogDataString.Result);
+            var dogData = DogManager.ParseDogData(dogDataString.Result);
             return Ok(dogData);
         }
 
