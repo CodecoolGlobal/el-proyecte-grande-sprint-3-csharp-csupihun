@@ -16,6 +16,13 @@ namespace ElProjecteGrande.Controllers
         [Route("getDog")]
         public async Task<IActionResult> GetDog(string url)
         {
+            var dogDataString = GetApiData(url);
+            var dogData = DataManager.ParseDogData(dogDataString.Result);
+            return Ok(dogData);
+        }
+
+        public async Task<string> GetApiData(string url)
+        {
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(url);
@@ -27,11 +34,9 @@ namespace ElProjecteGrande.Controllers
 
                 stringResult.Wait();
 
-                var randomDogString = stringResult.Result;
+                var apiDataString = stringResult.Result;
 
-                var dogData = DataManager.ParseDogData(randomDogString);
-
-                return Ok();
+                return apiDataString;
             }
         }
     }
