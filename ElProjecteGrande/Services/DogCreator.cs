@@ -1,20 +1,33 @@
-﻿using ElProjecteGrande.Models;
+﻿using ElProjecteGrande.Controllers;
+using ElProjecteGrande.Models;
 
 namespace ElProjecteGrande.Services
 {
     public class DogCreator
     {
-        public static Dog CreateRandomDog()
+        public IServiceProvider serviceProvider;
+        public Dog CreateRandomDog()
         {
-            int maxAge = 15;
+            //Name data
             int nameIndex = new Random().Next(DogNames.Names.Count);
             string name = DogNames.Names[nameIndex];
-            string breed= "placeholder";
+
+            //Age data
+            int maxAge = 15;
             int age = new Random().Next(maxAge);
+
+            //Breed and Picture data
+            APIController apiController = serviceProvider.GetService<APIController>();
+            List<string> dogData = apiController.GetRandomDog().Result;
+            string breed = dogData[0];
+            string picture = dogData[1];
+
+            //Sex data
             List<string> sexes = new List<string>{ "male", "female" };
             int sexIndex = new Random().Next(sexes.Count);
             string sex = sexes[sexIndex];
-            return new Dog(name, age, breed, sex);
+
+            return new Dog(name, age, breed, sex, picture);
         }
     }
 }

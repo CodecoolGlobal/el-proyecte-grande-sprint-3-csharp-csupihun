@@ -16,14 +16,15 @@ namespace ElProjecteGrande.Controllers
         }
 
         [Route("getRandomDog")]
-        public async Task<IActionResult> GetRandomDog()
+        public async Task<List<string>> GetRandomDog()
         {
             string url = "https://dog.ceo/api/breeds/image/random";
             var dogDataString = GetApiData(url);
             var dogData = DogManager.ParseDogData(dogDataString.Result);
             string dogBreed = DogManager.GetDogBreed(dogData["message"]);
             string dogPicture = dogData["message"];
-            return Ok(dogData);
+            List<string> data = new List<string>() { dogBreed, dogPicture};
+            return data;
         }
 
         public async Task<string> GetApiData(string url)
