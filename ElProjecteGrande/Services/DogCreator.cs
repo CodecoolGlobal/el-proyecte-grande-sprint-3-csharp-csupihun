@@ -6,9 +6,11 @@ namespace ElProjecteGrande.Services
     {
         public static Dog CreateRandomDog()
         {
-            string name = "placeholder";
+            int maxAge = 15;
+            int nameIndex = new Random().Next(DogNames.Names.Count);
+            string name = DogNames.Names[nameIndex];
             string breed= "placeholder";
-            int age = new Random().Next(15);
+            int age = new Random().Next(maxAge);
             List<string> sexes = new List<string>{ "male", "female" };
             int sexIndex = new Random().Next(sexes.Count);
             string sex = sexes[sexIndex];
