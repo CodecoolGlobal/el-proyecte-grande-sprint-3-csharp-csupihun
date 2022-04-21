@@ -8,9 +8,6 @@ namespace ElProjecteGrande.Services
         public IServiceProvider serviceProvider;
         public Dog CreateRandomDog()
         {
-            //Name data
-            int nameIndex = new Random().Next(DogNames.Names.Count);
-            string name = DogNames.Names[nameIndex];
 
             //Age data
             int maxAge = 15;
@@ -21,6 +18,10 @@ namespace ElProjecteGrande.Services
             List<string> dogData = apiController.GetRandomDog().Result;
             string breed = dogData[0];
             string picture = dogData[1];
+
+            //Name data
+            int nameIndex = new Random().Next(DogNames.Names.Count);
+            string name = dogData[2];
 
             //Sex data
             List<string> sexes = new List<string>{ "male", "female" };

@@ -1,5 +1,6 @@
 ﻿using ElProjecteGrande.Services;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace ElProjecteGrande.Controllers
 {
@@ -20,18 +21,23 @@ namespace ElProjecteGrande.Controllers
         {
             string url = "https://dog.ceo/api/breeds/image/random";
             var dogDataString = GetApiData(url);
+            var dogName = GetName();
             var dogData = DogManager.ParseDogData(dogDataString.Result);
             string dogBreed = DogManager.GetDogBreed(dogData["message"]);
             string dogPicture = dogData["message"];
-            List<string> data = new List<string>() { dogBreed, dogPicture};
+            List<string> data = new List<string>() { dogBreed, dogPicture, dogName};
             return data;
         }
 
-        public async Task<string> GetApiData(string url)
+        public async Task<string> GetApiData(string url, string header="")
         {
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(url);
+                if (header != String.Empty)
+                {
+                    client.DefaultRequestHeaders.Add("X-Api-Key", header);
+                }
                 var responseTask = client.GetAsync(url);
                 responseTask.Wait();
 
@@ -44,6 +50,13 @@ namespace ElProjecteGrande.Controllers
 
                 return apiDataString;
             }
+        }
+        public string GetName()
+        {
+            string url = "https://randommer.io/api/Name?nameType=firstname&quantity=1";
+            string key = "65ba9b3eef9a4af3a00d6b69ddde610c";
+            var rawName = GetApiData(url, key).Result;
+            return JsonConvert.DeserializeObject<List<string>>(rawName).First();
         }
     }
 }
