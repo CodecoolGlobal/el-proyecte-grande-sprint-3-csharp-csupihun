@@ -5,8 +5,21 @@ namespace ElProjecteGrande.Services
 {
     public class DogCreator
     {
-        public IServiceProvider serviceProvider;
-        public Dog CreateRandomDog()
+        public static DogCreator Singleton { get; private set; }
+
+        public static DogCreator GetInstance
+        {
+            get
+            {
+                if (Singleton == null)
+                {
+                    Singleton = new DogCreator();
+                }
+                return Singleton;
+            }
+        }
+
+        public Dog CreateRandomDog(List<string> dogData)
         {
 
             //Age data
@@ -14,8 +27,6 @@ namespace ElProjecteGrande.Services
             int age = new Random().Next(maxAge);
 
             //Breed and Picture data
-            APIController apiController = serviceProvider.GetService<APIController>();
-            List<string> dogData = apiController.GetRandomDog().Result;
             string breed = dogData[0];
             string picture = dogData[1];
 

@@ -1,4 +1,5 @@
-﻿using ElProjecteGrande.Services;
+﻿using ElProjecteGrande.Models;
+using ElProjecteGrande.Services;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -10,14 +11,16 @@ namespace ElProjecteGrande.Controllers
     {
         public DataManager DataManager;
         public DogManager DogManager;
+        public DogCreator DogCreator;
         public APIController()
         {
+            DogCreator = DogCreator.GetInstance;
             DogManager = DogManager.GetInstance;
             DataManager = DataManager.GetInstance;
         }
 
         [Route("getRandomDog")]
-        public async Task<List<string>> GetRandomDog()
+        public async Task<string> GetRandomDog()
         {
             string url = "https://dog.ceo/api/breeds/image/random";
             var dogDataString = GetApiData(url);
@@ -26,7 +29,8 @@ namespace ElProjecteGrande.Controllers
             string dogBreed = DogManager.GetDogBreed(dogData["message"]);
             string dogPicture = dogData["message"];
             List<string> data = new List<string>() { dogBreed, dogPicture, dogName};
-            return data;
+            Dog newDog = DogCreator.CreateRandomDog(data);
+            return JsonConvert.SerializeObject(newDog);
         }
 
         public async Task<string> GetApiData(string url, string header="")
