@@ -29,6 +29,7 @@
 
 .Dog-container {
   margin: 0 60px 0 60px;
+  font-size: 20px;
 }
 
 .Dog-name {
@@ -58,7 +59,7 @@
   max-width: 315px;
 }
 
-button {
+.Swipe-button {
   background-color: white;
   border-radius: 50%;
   height: 50px;
@@ -81,4 +82,11 @@ button {
   bottom: 15px;
   left: 15px;
   height: 120px;
+}
+
+.Header-button {
+  font-size: 15px;
+  margin-bottom: 5px;
+  background: none;
+  border: none;
 }
