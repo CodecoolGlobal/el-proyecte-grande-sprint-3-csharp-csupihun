@@ -1,24 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
-import { useEffect } from 'react';
+import Card from './Card.js';
+// import { useEffect } from 'react';
 
-function GetApi(url){
-  return fetch(url).then(r => r.json())
-}
+// function GetApi(url){
+//   return fetch(url).then(r => r.json())
+// }
 
 function App() {
 
-  useEffect(()=> {
-    GetApi('/api/getRandomDog').then((result) => {console.log(result)})
-  },[])
+//   useEffect(()=> {
+//     GetApi('/api/getRandomDog').then((result) => {console.log(result)})
+  // },[])
+  
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          
-        </p>
+        
+        
+          <Card />
+        
+        
         <a
           className="App-link"
           href="https://reactjs.org"
