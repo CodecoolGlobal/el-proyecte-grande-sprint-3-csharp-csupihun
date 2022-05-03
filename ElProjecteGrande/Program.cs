@@ -1,3 +1,4 @@
+using ElProjecteGrande.Daos;
 using ElProjecteGrande.Services;
 
 var builder = WebApplication.CreateBuilder(args);
