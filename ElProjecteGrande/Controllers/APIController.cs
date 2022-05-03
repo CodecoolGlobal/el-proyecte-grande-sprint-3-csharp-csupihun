@@ -1,4 +1,5 @@
-﻿using ElProjecteGrande.Models;
+﻿using ElProjecteGrande.Daos;
+using ElProjecteGrande.Models;
 using ElProjecteGrande.Services;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -9,14 +10,20 @@ namespace ElProjecteGrande.Controllers
     [Route("api")]
     public class APIController : ControllerBase
     {
-        public DataManager DataManager;
-        public DogManager DogManager;
-        public DogCreator DogCreator;
-        public APIController()
+        public IDataManager DataManager;
+        public IDogManager DogManager;
+        public IDogCreator DogCreator;
+        public APIController(IDogCreator dogCreator, IDogManager dogManager, IDataManager dataManager)
         {
-            DogCreator = DogCreator.GetInstance;
-            DogManager = DogManager.GetInstance;
-            DataManager = DataManager.GetInstance;
+            DogCreator = dogCreator;
+            DogManager = dogManager;
+            DataManager = dataManager;
+        }
+
+        [Route("LikeDog")]
+        public void LikeDog()
+        {
+            DataManager.AddCurrentDogToList();
         }
 
         [Route("getRandomDog")]
@@ -30,6 +37,7 @@ namespace ElProjecteGrande.Controllers
             string dogPicture = dogData["message"];
             List<string> data = new List<string>() { dogBreed, dogPicture, dogName};
             Dog newDog = DogCreator.CreateRandomDog(data);
+            DataManager.currentDog = newDog;
             return JsonConvert.SerializeObject(newDog);
         }
 

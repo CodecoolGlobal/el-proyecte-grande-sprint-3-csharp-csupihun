@@ -3,21 +3,8 @@ using ElProjecteGrande.Models;
 
 namespace ElProjecteGrande.Services
 {
-    public class DogCreator
+    public class DogCreator : IDogCreator
     {
-        public static DogCreator Singleton { get; private set; }
-
-        public static DogCreator GetInstance
-        {
-            get
-            {
-                if (Singleton == null)
-                {
-                    Singleton = new DogCreator();
-                }
-                return Singleton;
-            }
-        }
 
         public Dog CreateRandomDog(List<string> dogData)
         {

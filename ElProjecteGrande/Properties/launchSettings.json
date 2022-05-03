@@ -1,4 +1,4 @@
-﻿{
+{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
@@ -10,12 +10,12 @@
   "profiles": {
     "ElProjecteGrande": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7146;http://localhost:5146",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "https://localhost:7146;http://localhost:5146",
+      "dotnetRunMessages": true
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -23,6 +23,11 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Profile 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Advanced\\el-proyecte-grande-sprint-2-csharp-Nataliaalemany\\tierreact\\start.bat",
+      "workingDirectory": "C:\\Advanced\\el-proyecte-grande-sprint-2-csharp-Nataliaalemany\\tierreact"
     }
   }
 }
