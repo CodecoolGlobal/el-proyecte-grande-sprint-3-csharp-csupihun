@@ -1,7 +1,12 @@
+using ElProjecteGrande.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IDataManager>(new DataManager());
+builder.Services.AddSingleton<IDogCreator>(new DogCreator());
+builder.Services.AddSingleton<IDogManager>(new DogManager());
 
 var app = builder.Build();
 
@@ -13,7 +18,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+    app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();

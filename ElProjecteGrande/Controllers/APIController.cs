@@ -9,14 +9,14 @@ namespace ElProjecteGrande.Controllers
     [Route("api")]
     public class APIController : ControllerBase
     {
-        public DataManager DataManager;
-        public DogManager DogManager;
-        public DogCreator DogCreator;
-        public APIController()
+        public IDataManager DataManager;
+        public IDogManager DogManager;
+        public IDogCreator DogCreator;
+        public APIController(IDogCreator dogCreator, IDogManager dogManager, IDataManager dataManager)
         {
-            DogCreator = DogCreator.GetInstance;
-            DogManager = DogManager.GetInstance;
-            DataManager = DataManager.GetInstance;
+            DogCreator = dogCreator;
+            DogManager = dogManager;
+            DataManager = dataManager;
         }
 
         [Route("getRandomDog")]
