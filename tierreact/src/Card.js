@@ -17,17 +17,11 @@ const Card = () => {
         
       return (
     <div className='Dog-card'>
-      
-      
-      <img src={currentDog.Picture} style={{"maxWidth": "200px"}} /><br />
-      <div className='Dog-container'><p className='Dog-name'>{currentDog.Name}  {currentDog.Age}</p><p className='Dog-sex'>{currentDog.Sex}</p><br />
-      <p className='Dog-breed'>{currentDog.Breed}<br /></p></div>
-      <button >X</button> <button >Like</button>
-      
-
-    </div>
+      <div className='Dog-image'><img className='Api-image' src={currentDog.Picture} /><br /></div>
+      <div className='Dog-container'><div className='Dog-name'><strong>{currentDog.Name} {currentDog.Age} </strong></div><div className='Dog-sex'><strong>{currentDog.Sex}</strong></div><br /></div>
+      <div className='Dog-breed'><strong>{currentDog.Breed}</strong><br /></div>
+      <div className='Buttons'><button >❌</button> <button >❤️</button></div></div>
   )
-
 }
 
 export default Card
