@@ -16,12 +16,14 @@ const Card = () => {
         },[])
         
       return (
-    <div>
-      {currentDog.Name}<br />
-      {currentDog.Breed}<br />
+    <div className='Dog-card'>
+      
+      
       <img src={currentDog.Picture} style={{"maxWidth": "200px"}} /><br />
-      Age: {currentDog.Age}<br />
-      {currentDog.Sex}
+      <div className='Dog-container'><p className='Dog-name'>{currentDog.Name}  {currentDog.Age}</p><p className='Dog-sex'>{currentDog.Sex}</p><br />
+      <p className='Dog-breed'>{currentDog.Breed}<br /></p></div>
+      <button >X</button> <button >Like</button>
+      
 
     </div>
   )
