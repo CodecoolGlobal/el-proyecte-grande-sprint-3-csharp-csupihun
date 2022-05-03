@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+  
 }
 
 .App-logo {
@@ -22,6 +23,40 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.header {
+  width: 100%;
+  border-bottom: 1px solid white;
+}
+
+.Dog-card {
+  height: 800px;
+  width: 600px;
+  border: 1px solid white;
+  border-radius: 15px;
+}
+
+.Dog-name {
+  text-align: left ;
+  display: inline;
+  position: relative;
+  margin-left: 0%;
+  margin-right: 60%;
+}
+
+.Dog-breed {
+  text-align: left ;
+  display: inline;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+
+.Dog-sex {
+  text-align: left;
+  display: inline;
+  position: relative;
+  
 }
 
 .App-link {
