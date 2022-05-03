@@ -14,7 +14,7 @@ namespace ElProjecteGrande.Services
             int age = new Random().Next(maxAge);
 
             //Breed and Picture data
-            string breed = dogData[0];
+            string breed = Utils.CapitalizeFirstLetter(dogData[0]);
             string picture = dogData[1];
 
             //Name data
@@ -22,7 +22,7 @@ namespace ElProjecteGrande.Services
             string name = dogData[2];
 
             //Sex data
-            List<string> sexes = new List<string>{ "male", "female" };
+            List<string> sexes = new List<string>{ "Male", "Female" };
             int sexIndex = new Random().Next(sexes.Count);
             string sex = sexes[sexIndex];
 
