@@ -1,4 +1,5 @@
-﻿using ElProjecteGrande.Models;
+﻿
+using ElProjecteGrande.Models;
 using ElProjecteGrande.Services;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -17,6 +18,13 @@ namespace ElProjecteGrande.Controllers
             DogCreator = DogCreator.GetInstance;
             DogManager = DogManager.GetInstance;
             DataManager = DataManager.GetInstance;
+
+        }
+
+        [Route("LikeDog")]
+        public void LikeDog()
+        {
+            DataManager.AddCurrentDogToList();
         }
 
         [Route("getRandomDog")]
@@ -30,6 +38,7 @@ namespace ElProjecteGrande.Controllers
             string dogPicture = dogData["message"];
             List<string> data = new List<string>() { dogBreed, dogPicture, dogName};
             Dog newDog = DogCreator.CreateRandomDog(data);
+            DataManager.currentDog = newDog;
             return JsonConvert.SerializeObject(newDog);
         }
 
