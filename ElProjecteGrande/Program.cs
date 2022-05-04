@@ -1,7 +1,26 @@
 using ElProjecteGrande.Daos;
 using ElProjecteGrande.Services;
+using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
+
+void StartBat()
+{
+    try
+    {
+        string batDir = string.Format(@"");
+        var proc = new Process();
+        proc.StartInfo.WorkingDirectory = batDir;
+        proc.StartInfo.FileName = "start.bat";
+        proc.StartInfo.CreateNoWindow = false;
+        proc.Start();
+        Console.WriteLine("Bat file executed !!");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.StackTrace.ToString());
+    }
+}
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -30,4 +49,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+StartBat();
 app.Run();
