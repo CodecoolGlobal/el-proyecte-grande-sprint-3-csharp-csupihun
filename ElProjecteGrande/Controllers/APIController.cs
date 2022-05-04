@@ -10,9 +10,9 @@ namespace ElProjecteGrande.Controllers
     [Route("api")]
     public class APIController : ControllerBase
     {
-        public IDataManager DataManager;
-        public IDogManager DogManager;
-        public IDogCreator DogCreator;
+        private IDataManager DataManager;
+        private IDogManager DogManager;
+        private IDogCreator DogCreator;
         public APIController(IDogCreator dogCreator, IDogManager dogManager, IDataManager dataManager)
         {
             DogCreator = dogCreator;
