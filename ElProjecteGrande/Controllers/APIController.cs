@@ -10,9 +10,9 @@ namespace ElProjecteGrande.Controllers
     [Route("api")]
     public class APIController : ControllerBase
     {
-        public IDataManager DataManager;
-        public IDogManager DogManager;
-        public IDogCreator DogCreator;
+        private IDataManager DataManager;
+        private IDogManager DogManager;
+        private IDogCreator DogCreator;
         public APIController(IDogCreator dogCreator, IDogManager dogManager, IDataManager dataManager)
         {
             DogCreator = dogCreator;
@@ -34,8 +34,9 @@ namespace ElProjecteGrande.Controllers
             var dogName = GetName();
             var dogData = DogManager.ParseDogData(dogDataString.Result);
             string dogBreed = DogManager.GetDogBreed(dogData["message"]);
+            string capitalizedDogBreed = DogManager.CapitalizeDogBreed(dogBreed);
             string dogPicture = dogData["message"];
-            List<string> data = new List<string>() { dogBreed, dogPicture, dogName};
+            List<string> data = new List<string>() { capitalizedDogBreed, dogPicture, dogName};
             Dog newDog = DogCreator.CreateRandomDog(data);
             DataManager.currentDog = newDog;
             return JsonConvert.SerializeObject(newDog);

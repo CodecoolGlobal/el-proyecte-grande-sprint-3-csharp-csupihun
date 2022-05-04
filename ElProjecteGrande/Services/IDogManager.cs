@@ -4,5 +4,6 @@
     {
         Dictionary<string, string> ParseDogData(string dogString);
         string GetDogBreed(string dogDataLink);
+        string CapitalizeDogBreed(string breed);
     }
 }
