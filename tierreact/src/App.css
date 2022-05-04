@@ -1,5 +1,17 @@
 .App {
+  align-content: center;
   text-align: center;
+}
+
+.Swipe {
+  text-align: center;
+  width: 400px;
+}
+
+.Swipe-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -15,7 +27,7 @@
 }
 
 .Dog-card {
-  margin: 30px 0 30px 35%;
+  margin-top: 30px;
   height: 500px;
   width: 400px;
   border-radius: 15px;
