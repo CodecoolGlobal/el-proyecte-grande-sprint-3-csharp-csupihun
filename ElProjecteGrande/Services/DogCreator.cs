@@ -5,7 +5,6 @@ namespace ElProjecteGrande.Services
 {
     public class DogCreator : IDogCreator
     {
-
         public Dog CreateRandomDog(List<string> dogData)
         {
 
@@ -14,7 +13,7 @@ namespace ElProjecteGrande.Services
             int age = new Random().Next(maxAge);
 
             //Breed and Picture data
-            string breed = Utils.CapitalizeFirstLetter(dogData[0]);
+            string breed = dogData[0];
             string picture = dogData[1];
 
             //Name data
@@ -23,7 +22,7 @@ namespace ElProjecteGrande.Services
 
             //Sex data
             List<string> sexes = new List<string>{ "Male", "Female" };
-            int sexIndex = new Random().Next(sexes.Count);
+            int sexIndex = new Random().Next(1, sexes.Count);
             string sex = sexes[sexIndex];
 
             return new Dog(name, age, breed, sex, picture);

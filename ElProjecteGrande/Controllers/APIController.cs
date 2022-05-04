@@ -34,8 +34,9 @@ namespace ElProjecteGrande.Controllers
             var dogName = GetName();
             var dogData = DogManager.ParseDogData(dogDataString.Result);
             string dogBreed = DogManager.GetDogBreed(dogData["message"]);
+            string capitalizedDogBreed = DogManager.CapitalizeDogBreed(dogBreed);
             string dogPicture = dogData["message"];
-            List<string> data = new List<string>() { dogBreed, dogPicture, dogName};
+            List<string> data = new List<string>() { capitalizedDogBreed, dogPicture, dogName};
             Dog newDog = DogCreator.CreateRandomDog(data);
             DataManager.currentDog = newDog;
             return JsonConvert.SerializeObject(newDog);
