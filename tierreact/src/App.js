@@ -28,14 +28,18 @@ function App() {
   const CardManager = (props) => {
 
     return (
-      <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('dogCard')} ><div className='Card-container'><Card swipeState={props.swipeState} setSwipeState={props.setSwipeState}/></div></TinderCard>
+      <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('dogCard')} ><div className='Card-container'>
+        <Card swipeState={props.swipeState} setSwipeState={props.setSwipeState}/></div>
+      </TinderCard>
     );
   }
 
   return (
     <div className="App">
       <header className="App-header">
-        <div className='Header-text'><button onClick={ShowRegistration} className='Header-button'><strong> Register </strong></button><button className='Header-button'><strong> Login </strong></button></div>   
+        <div className='Header-text'><button onClick={ShowRegistration} className='Header-button'>
+          <strong> Register </strong></button><button className='Header-button'><strong> Login </strong>
+        </button></div>   
       </header>
           <CardManager swipeState={swipeState} setSwipeState={setSwipeState}/>
           <img className='logo' src={logo} height={350}></img>
