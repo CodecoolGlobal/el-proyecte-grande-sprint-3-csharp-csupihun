@@ -116,3 +116,34 @@ body {
 .hide {
   display: none;
 }
+
+.modal {
+  
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 40px;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content{
+  padding-top: 5%;
+  background-color: #fefefe;
+  margin: 15% auto;
+  border-radius: 15px;
+  width: 40%; /* Full width */
+  height: 40%; /* Full height */
+}
+.select {
+  margin: auto;
+  text-align: center;
+  width: 30%;
+}
+
+.register-button {
+  margin-top: 20px;
+}

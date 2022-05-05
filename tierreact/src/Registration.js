@@ -12,7 +12,7 @@ const sexOptions = [
   ]
 
 const Interest = () => (
-    <Select name="interest" options={interestOptions} />
+    <Select name="interest"  options={interestOptions} />
 )
 const Sex = () => (
     <Select name="sex" options={sexOptions} />
@@ -25,17 +25,19 @@ const Test = (event) => {
 function Registration(props) {
 
   return (
-    <div className={props.state? "show" : "hide"}>
+    <div className={props.state? 'modal show' : 'modal hide'}>
+      <div className='modal-content'>
       <form action='register' onSubmit={Test}>
-          email: <input type="text" name="email"/><br />
+          email:    <input type="text" name="email"/><br />
           password: <input type="text" name="password"/><br />
-          name: <input type="text" name='name'/><br />
-          age: <input type="text" name='age'/><br />
-          breed: <input type="text" name='breed'/><br />
-          sex: <Sex />
-          interest: <Interest />
-          <button type='submit' onClick={props.stateChange}>Register</button>
+          name:     <input type="text" name='name'/><br />
+          age:      <input type="text" name='age'/><br />
+          breed:    <input type="text" name='breed'/><br />
+          <div className='select'>sex: <Sex /></div>
+          <div className='select'>interest: <Interest className='select'/></div>
+          <button className="register-button" type='submit' onClick={props.stateChange}>Register</button>
       </form>
+      </div>
     </div>
   )
 }
