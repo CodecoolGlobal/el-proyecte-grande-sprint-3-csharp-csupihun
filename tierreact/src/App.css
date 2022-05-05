@@ -1,3 +1,5 @@
+/* overall  */
+
 .App {
   align-content: center;
   text-align: center;
@@ -8,22 +10,18 @@ body {
   overflow-x: hidden;
 }
 
-.Swipe-container {
+/* dog card */
+
+.Card-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-.App-header {
-  background-color: #dcf8c6;
-  font-size: calc(10px + 2vmin);
-  color: black;
-  width: 100%;
+.Dog-container {
+  margin: 0 60px 0 60px;
+  font-size: 20px;
 }
 
 .Dog-card {
@@ -35,11 +33,6 @@ body {
   color: black;
   display: flex;
   flex-direction: column;
-}
-
-.Dog-container {
-  margin: 0 60px 0 60px;
-  font-size: 20px;
 }
 
 .Dog-name {
@@ -68,6 +61,8 @@ body {
   max-width: 315px;
 }
 
+/* card buttons */
+
 .Swipe-button {
   background-color: white;
   border-radius: 50%;
@@ -81,9 +76,11 @@ body {
   justify-content: space-around;
 }
 
-.Header-text {
-  margin-right: 30px;
-  text-align: right !important;
+/* logo  */
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
 .logo {
@@ -93,12 +90,28 @@ body {
   height: 120px;
 }
 
+/* header */
+
+.App-header {
+  background-color: #dcf8c6;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  width: 100%;
+}
+
+.Header-text {
+  margin-right: 30px;
+  text-align: right !important;
+}
+
 .Header-button {
   font-size: 15px;
   margin-bottom: 5px;
   background: none;
   border: none;
 }
+
+/* modal */
 
 .hide {
   display: none;

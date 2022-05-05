@@ -28,7 +28,7 @@ function App() {
   const CardManager = (props) => {
 
     return (
-      <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('dogCard')} ><div className='Swipe-container'><Card swipeState={props.swipeState} setSwipeState={props.setSwipeState}/></div></TinderCard>
+      <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('dogCard')} ><div className='Card-container'><Card swipeState={props.swipeState} setSwipeState={props.setSwipeState}/></div></TinderCard>
     );
   }
 
