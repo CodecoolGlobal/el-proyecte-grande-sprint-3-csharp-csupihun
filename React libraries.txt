@@ -1,0 +1,2 @@
+npm i --react-tinder-card
+npm i --save react-select
