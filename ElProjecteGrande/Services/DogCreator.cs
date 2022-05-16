@@ -24,7 +24,7 @@ namespace ElProjecteGrande.Services
 
             //Sex data
             List<string> sexes = new List<string>{ "Male", "Female" };
-            int sexIndex = new Random().Next(1, sexes.Count);
+            int sexIndex = new Random().Next(sexes.Count);
             string sex = sexes[sexIndex];
 
             return new Dog(name, age, breed, sex, picture);
