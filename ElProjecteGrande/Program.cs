@@ -1,5 +1,7 @@
 using ElProjecteGrande.Daos;
+using ElProjecteGrande.Models;
 using ElProjecteGrande.Services;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +26,8 @@ void StartBat()
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DatingContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddSingleton<IDataManager>(new DataManager());
 builder.Services.AddSingleton<IDogCreator>(new DogCreator());
 builder.Services.AddSingleton<IDogManager>(new DogManager());
