@@ -11,11 +11,22 @@ const sexOptions = [
     { value: 'male', label: 'male' }
   ]
 
+// const customStyles = {
+//   option: (base) => ({
+//     ...base,
+//     padding: '15px',
+//     // boxShadow:  state.isFocused ? '1px solid orange' : '2px solid green' ,
+//     // outlineColor: 'blue !important',
+//     // //  outlineStyle: 'auto !important', 
+//     //  outlineWidth: '5px !important', 
+//   }),
+// }
+
 const Interest = () => (
-    <Select name="interest"  options={interestOptions} />
+    <Select name="interest" /* styles={customStyles}*/ className='dropdown' placeholder='SELECT INTEREST' options={interestOptions} />
 )
 const Sex = () => (
-    <Select name="sex" options={sexOptions} />
+    <Select name="sex" className='dropdown' placeholder='SELECT SEX' options={sexOptions} />
 )
 
 const Test = (event) => {
@@ -23,22 +34,45 @@ const Test = (event) => {
 }
 
 function Registration(props) {
-
   return (
+    <div className='modal-backdrop' onClick={props.stateChange}>
     <div className={props.state? 'modal show' : 'modal hide'}>
-      <div className='modal-content'>
+      <div className='modal-content' onClick={e => {
+          e.stopPropagation();
+        }}>
+      <div className='xbutton' onClick={props.stateChange}>x</div> 
+      <h1>GET STARTED</h1>   
       <form action='register' onSubmit={Test}>
-          email:    <input type="text" name="email"/><br />
-          password: <input type="text" name="password"/><br />
-          name:     <input type="text" name='name'/><br />
-          age:      <input type="text" name='age'/><br />
-          breed:    <input type="text" name='breed'/><br />
-          <div className='select'>sex: <Sex /></div>
-          <div className='select'>interest: <Interest className='select'/></div>
-          <button className="register-button" type='submit' onClick={props.stateChange}>Register</button>
+        <div className="input-block">
+          <label for="email">EMAIL: </label><br />
+          <input type="text" name="email"/><br />
+        </div>
+        <div className="input-block">
+          <label for="password">PASSWORD: </label><br />
+          <input type="text" name="password"/><br />
+        </div>
+        <div className="input-block">
+          <label for="name">NAME: </label><br />
+          <input type="text" name='name'/><br />
+        </div>
+        <div className="input-block">
+          <label for="age">AGE: </label><br />
+          <input type="text" name='age'/><br />
+        </div>
+        <div className="input-block">
+          <label for="breed">BREED: </label><br />
+          <input type="text" name='breed'/><br />
+        </div>
+          <div className='select-container'>
+          <div className='select'><Sex /></div>
+          <div className='select'><Interest /></div>
+          </div>
+          <button className="register-button" type='submit' onClick={props.stateChange}>SIGN UP</button>
       </form>
       </div>
     </div>
+    </div>
+    
   )
 }
 
