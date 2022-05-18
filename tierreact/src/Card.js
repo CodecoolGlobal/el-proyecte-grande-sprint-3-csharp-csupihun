@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import TinderCard from 'react-tinder-card';
 
 function GetApi(url){
@@ -7,9 +7,12 @@ function GetApi(url){
 }
 
 
+
+
 const Card = (props) => {
-      const [currentDog, setCurrentDog] = useState([]);
-      const [reload, setState] = useState({reload: false})
+      const [currentDog, setCurrentDog] = useState(null);
+      const [reload, setState] = useState( false)
+      const tinderCard = useRef();
       const LikeDog = () => {
       
         console.log("you liked this dog")
@@ -20,12 +23,16 @@ const Card = (props) => {
         GetApi('/api/getRandomDog').then((result) => {setCurrentDog(result)})
       }
       const Reload = () => {
-        props.setTop(props.isTop === 1 ? 0 : 1)
-        setState({reload: !reload});
+        
+        setCurrentDog(null);
+        props.onToggle();
       }
       useEffect(()=> {
+        if (currentDog === null){
           GetDogData() 
-        },[])
+          return
+        }
+        },[currentDog])
         
       
 
@@ -42,20 +49,26 @@ const Card = (props) => {
           fetch('/api/LikeDog')
           // setSwipeState(!swipeState)
           
+          
         } 
-        Reload()
         
-        
-        
+      }
+
+      const goBack = async () => {
+        return await tinderCard.current.restoreCard()
       }
     
       const onCardLeftScreen = (myIdentifier) => {
         console.log(myIdentifier + ' left the screen')
-      }
+        Reload()
         
+      }
+        if (currentDog === null){
+          return <div></div>;
+        }
       return (
         <div >
-    <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('dogCard')} ><div className='Card-container'>
+    <TinderCard ref={tinderCard} onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('DogCard')} ><div className='Card-container'>
     <div className='Dog-card' >
       <div className='Dog-image'><img className='Api-image' src={currentDog.Picture} /><br /></div>
       <div className='Dog-container'>

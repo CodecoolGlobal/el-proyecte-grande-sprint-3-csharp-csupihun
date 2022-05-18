@@ -31,7 +31,7 @@ namespace ElProjecteGrande.Controllers
         {
             string url = "https://dog.ceo/api/breeds/image/random";
             var dogDataString = GetApiData(url);
-            var dogName = GetName();
+            var dogName = GetNameFromList();
             var dogData = DogManager.ParseDogData(dogDataString.Result);
             string dogBreed = DogManager.GetDogBreed(dogData["message"]);
             string capitalizedDogBreed = DogManager.CapitalizeDogBreed(dogBreed);
@@ -63,6 +63,13 @@ namespace ElProjecteGrande.Controllers
 
                 return apiDataString;
             }
+        }
+
+        public string GetNameFromList()
+        {
+            var random = new Random();
+            var name = DogNames.Names[random.Next(20)];
+            return name;
         }
         public string GetName()
         {
