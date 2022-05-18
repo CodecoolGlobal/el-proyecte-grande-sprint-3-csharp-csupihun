@@ -172,7 +172,7 @@ input {
   border: none;
   border-radius: 4px;
   padding: 11px 15px;
-  margin-top: 40px;
+  margin-top: 15px;
   font-weight: bold;
 }
 
@@ -186,8 +186,46 @@ input {
   font-size: 11px;
 }
 
-h1 {
+.register-header {
   font-style: italic;
   font-size: 25px;
-  margin: 10px 3px 20px 0;
+  margin: 10px 3px 15px 0;
+}
+
+/* login */
+
+.password-recovery {
+  font-size: 11px;
+}
+
+.signup-button {
+  border: none;
+  background-color: unset;
+  padding: 0;
+  font-size: 11px;
+  text-decoration: underline;
+}
+
+.signup {
+  font-size: 11px;
+  margin-top: 35px;
+}
+
+.login-header {
+  font-style: italic;
+  font-size: 25px;
+  margin: 50px 3px 50px 0;
+}
+
+.login-button {
+  background-color: #dcf8c6; 
+  border: none;
+  border-radius: 4px;
+  padding: 11px 15px;
+  margin-top: 75px;
+  font-weight: bold;
+}
+
+.login {
+  font-size: 11px;
 }
