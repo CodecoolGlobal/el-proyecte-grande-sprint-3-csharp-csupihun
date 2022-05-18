@@ -30,7 +30,7 @@ function Registration(props) {
           e.stopPropagation();
         }}>
       <div className='xbutton' onClick={props.stateChange}>x</div> 
-      <h1>GET STARTED</h1>   
+      <h1 className='register-header'>GET STARTED</h1>   
       <form action='register' onSubmit={Test}>
         <div className="input-block">
           <label for="email">EMAIL: </label><br />
