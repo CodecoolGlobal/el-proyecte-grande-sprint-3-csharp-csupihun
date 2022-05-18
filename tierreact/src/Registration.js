@@ -11,19 +11,8 @@ const sexOptions = [
     { value: 'male', label: 'male' }
   ]
 
-// const customStyles = {
-//   option: (base) => ({
-//     ...base,
-//     padding: '15px',
-//     // boxShadow:  state.isFocused ? '1px solid orange' : '2px solid green' ,
-//     // outlineColor: 'blue !important',
-//     // //  outlineStyle: 'auto !important', 
-//     //  outlineWidth: '5px !important', 
-//   }),
-// }
-
 const Interest = () => (
-    <Select name="interest" /* styles={customStyles}*/ className='dropdown' placeholder='SELECT INTEREST' options={interestOptions} />
+    <Select name="interest" className='dropdown' placeholder='SELECT INTEREST' options={interestOptions} />
 )
 const Sex = () => (
     <Select name="sex" className='dropdown' placeholder='SELECT SEX' options={sexOptions} />
@@ -72,7 +61,6 @@ function Registration(props) {
       </div>
     </div>
     </div>
-    
   )
 }
 

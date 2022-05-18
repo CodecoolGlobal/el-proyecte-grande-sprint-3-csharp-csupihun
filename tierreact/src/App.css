@@ -132,8 +132,8 @@ body {
   background-color: #fefefe;
   margin: 2% auto;
   border-radius: 15px;
-  width: 300px; /* Full width */
-  height: 540px; /* Full height */
+  width: 300px;
+  height: 540px;
   text-transform: uppercase;
 }
 
