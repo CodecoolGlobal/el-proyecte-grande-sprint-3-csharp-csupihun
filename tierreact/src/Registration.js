@@ -23,6 +23,10 @@ const Test = (event) => {
 }
 
 function Registration(props) {
+  const openLogin = () => {
+    props.stateChange()
+    props.loginButton()
+} 
   return (
     <div className='modal-backdrop' onClick={props.stateChange}>
     <div className={props.state? 'modal show' : 'modal hide'}>
@@ -57,6 +61,7 @@ function Registration(props) {
           <div className='select'><Interest /></div>
           </div>
           <button className="register-button" type='submit' onClick={props.stateChange}>SIGN UP</button>
+          <p className='login' >Already have an account? <button className='signup-button' onClick={openLogin} >SIGN IN</button></p>
       </form>
       </div>
     </div>

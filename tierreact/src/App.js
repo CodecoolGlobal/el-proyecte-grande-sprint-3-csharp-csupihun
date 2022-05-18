@@ -46,7 +46,7 @@ function App() {
       </header>
           <CardManager swipeState={swipeState} setSwipeState={setSwipeState}/>
           <img className='logo' src={logo} height={350}></img>
-          <Registration  state={registerState} stateChange={ShowRegistration}/>
+          <Registration  state={registerState} stateChange={ShowRegistration} loginButton={ShowLogin}/>
           <Login  state={loginState} stateChange={ShowLogin} registerButton={ShowRegistration}/>
     </div>
   );
