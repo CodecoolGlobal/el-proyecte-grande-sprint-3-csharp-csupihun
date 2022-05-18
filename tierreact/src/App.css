@@ -18,6 +18,11 @@ body {
   align-items: center;
 }
 
+.test {
+  position: absolute;
+  margin: 30%;
+}
+
 
 .Dog-container {
   margin: 0 60px 0 60px;

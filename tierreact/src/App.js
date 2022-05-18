@@ -2,38 +2,38 @@ import './App.css';
 import Registration from './Registration.js';
 import Card from './Card.js';
 import logo from './image/TierPaw.png';
-import { useState } from 'react';
-import TinderCard from 'react-tinder-card';
+import { useState, useEffect } from 'react';
+
+
+
+
+
+
+
+const CardManager = (props) => {
+
+  const [isTop, setTop] = useState(1)
+  const [swipeState, setSwipeState] = useState(false)
+  const [swipeState2, setSwipeState2] = useState(false)
+
+  
+    
+  return (
+  <div>
+    <div className='test' style={{zIndex: isTop === 1? 1:0}}>
+      <Card isTop={isTop} setTop={setTop} swipeState={props.swipeState} setSwipeState={props.setSwipeState}/>
+    </div>
+    <div className='test' style={{zIndex: isTop === 1? 0:1}}>
+      <Card isTop={isTop} setTop={setTop} swipeState={props.swipeState} setSwipeState={props.setSwipeState}/>
+    </div>
+    
+  </div>
+  );
+}
 
 function App() {
-  const [swipeState, setSwipeState] = useState(false)
   const [formstate, setFormState] = useState(false)
   const ShowRegistration = () => {setFormState(!formstate)}
-  const onSwipe = (direction) => {
-    console.log('You swiped: ' + direction)
-    if (direction == 'left' || direction == 'down') {
-      console.log("this dog wasn't good enough for you")
-
-      setSwipeState(!swipeState)
-    }
-    else  {
-      console.log("you liked this dog")
-      fetch('/api/LikeDog')
-      setSwipeState(!swipeState)
-    } 
-  }
-  const onCardLeftScreen = (myIdentifier) => {
-    console.log(myIdentifier + ' left the screen')
-  } 
-  const CardManager = (props) => {
-
-    return (
-      <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('dogCard')} ><div className='Card-container'>
-        <Card swipeState={props.swipeState} setSwipeState={props.setSwipeState}/></div>
-      </TinderCard>
-    );
-  }
-
   return (
     <div className="App">
       <header className="App-header">
@@ -41,7 +41,7 @@ function App() {
           <strong> Register </strong></button><button className='Header-button'><strong> Login </strong>
         </button></div>   
       </header>
-          <CardManager swipeState={swipeState} setSwipeState={setSwipeState}/>
+          <CardManager/>
           <img className='logo' src={logo} height={350}></img>
           <Registration  state={formstate} stateChange={ShowRegistration}/>
     </div>
