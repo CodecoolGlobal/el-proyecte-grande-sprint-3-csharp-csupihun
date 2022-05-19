@@ -37,23 +37,23 @@ function Registration(props) {
       <h1 className='register-header'>GET STARTED</h1>   
       <form action='register' onSubmit={Test}>
         <div className="input-block">
-          <label for="email">EMAIL: </label><br />
+          <label htmlFor="email">EMAIL: </label><br />
           <input type="text" name="email"/><br />
         </div>
         <div className="input-block">
-          <label for="password">PASSWORD: </label><br />
+          <label htmlFor="password">PASSWORD: </label><br />
           <input type="text" name="password"/><br />
         </div>
         <div className="input-block">
-          <label for="name">NAME: </label><br />
+          <label htmlFor="name">NAME: </label><br />
           <input type="text" name='name'/><br />
         </div>
         <div className="input-block">
-          <label for="age">AGE: </label><br />
+          <label htmlFor="age">AGE: </label><br />
           <input type="text" name='age'/><br />
         </div>
         <div className="input-block">
-          <label for="breed">BREED: </label><br />
+          <label htmlFor="breed">BREED: </label><br />
           <input type="text" name='breed'/><br />
         </div>
           <div className='select-container'>

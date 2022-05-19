@@ -19,11 +19,11 @@ function Login(props) {
           <h1 className='login-header'>SIGN IN TO TI&ER</h1>   
           <form action='login' onSubmit={Test}>
             <div className="input-block">
-              <label for="email">EMAIL: </label><br />
+              <label htmlFor="email">EMAIL: </label><br />
               <input type="text" name="email"/><br />
             </div>
             <div className="input-block">
-              <label for="password">PASSWORD: </label><br />
+              <label htmlFor="password">PASSWORD: </label><br />
               <input type="text" name="password"/><br />
             </div>
             <a className='password-recovery' href='/recoverpassword'>Forgot Password?</a><br />
