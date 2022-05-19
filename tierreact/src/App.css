@@ -20,6 +20,8 @@ body {
 
 .centering {
   position: absolute;
+  margin-left: 35%;
+  margin-top: 2%
 }
 
 
@@ -29,7 +31,7 @@ body {
 }
 
 .Dog-card {
-  margin-top: 70%;
+  margin-top: 30px;
   height: 500px;
   width: 400px;
   border-radius: 15px;

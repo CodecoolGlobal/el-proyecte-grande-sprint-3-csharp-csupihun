@@ -17,15 +17,16 @@ const CardManager = (props) => {
   const [swipeState2, setSwipeState2] = useState(false)
 
   const toggleTop = () => {
-    setTop(isTop === 1? 0 : 1)
+    setTop(isTop === 1? -1 : 1)
   }
     
   return (
   <div>
-    <div className='test' style={{zIndex: isTop === 1? 1:0}}>
+    <p>{isTop}</p>
+    <div className='centering' style={{zIndex: isTop === 1? 1: -1}}>
       <Card onToggle={toggleTop} swipeState={props.swipeState} setSwipeState={props.setSwipeState}/>
     </div>
-    <div className='test' style={{zIndex: isTop === 1? 0:1}}>
+    <div className='centering' style={{zIndex: 0}}>
       <Card onToggle={toggleTop} swipeState={props.swipeState} setSwipeState={props.setSwipeState}/>
     </div>
     
