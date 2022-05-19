@@ -13,6 +13,7 @@ namespace ElProjecteGrande.Controllers
         private IDataManager DataManager;
         private IDogManager DogManager;
         private IDogCreator DogCreator;
+        private Random random = new Random();
         public APIController(IDogCreator dogCreator, IDogManager dogManager, IDataManager dataManager)
         {
             DogCreator = dogCreator;
@@ -31,15 +32,25 @@ namespace ElProjecteGrande.Controllers
         {
             string url = "https://dog.ceo/api/breeds/image/random";
             var dogDataString = GetApiData(url);
-            var dogName = GetName();
+            var dogName = GetNameFromList();
             var dogData = DogManager.ParseDogData(dogDataString.Result);
             string dogBreed = DogManager.GetDogBreed(dogData["message"]);
             string capitalizedDogBreed = DogManager.CapitalizeDogBreed(dogBreed);
-            string dogPicture = dogData["message"];
+            string dogPicture = ChoosePicture(dogData["message"]);
             List<string> data = new List<string>() { capitalizedDogBreed, dogPicture, dogName};
             Dog newDog = DogCreator.CreateRandomDog(data);
             DataManager.currentDog = newDog;
             return JsonConvert.SerializeObject(newDog);
+        }
+
+        private string ChoosePicture(string picture)
+        {
+            var currentNum = random.Next(50);
+            if (currentNum < 5)
+            {
+                return HumanPictures.pictures[currentNum];
+            }
+            return picture;
         }
 
         public async Task<string> GetApiData(string url, string header="")
@@ -63,6 +74,13 @@ namespace ElProjecteGrande.Controllers
 
                 return apiDataString;
             }
+        }
+
+        public string GetNameFromList()
+        {
+            var random = new Random();
+            var name = DogNames.Names[random.Next(20)];
+            return name;
         }
         public string GetName()
         {
