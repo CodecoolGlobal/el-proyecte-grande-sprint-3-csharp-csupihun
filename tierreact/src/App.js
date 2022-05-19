@@ -22,7 +22,6 @@ const CardManager = (props) => {
     
   return (
   <div>
-    <p>{isTop}</p>
     <div className='test' style={{zIndex: isTop === 1? 1:0}}>
       <Card onToggle={toggleTop} swipeState={props.swipeState} setSwipeState={props.setSwipeState}/>
     </div>

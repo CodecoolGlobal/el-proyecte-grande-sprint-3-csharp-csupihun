@@ -17,7 +17,8 @@ const Card = (props) => {
       
         console.log("you liked this dog")
         
-        onSwipe("right")
+        fetch('/api/LikeDog')
+        onCardLeftScreen('DogCard')
       }
       const GetDogData = () => {
         GetApi('/api/getRandomDog').then((result) => {setCurrentDog(result)})
@@ -77,7 +78,7 @@ const Card = (props) => {
       </div>
       <div className='Dog-breed'><strong>{currentDog.Breed}</strong><br /></div>
       <div className='Buttons'>
-        <button onClick={()=>{onSwipe("left")}} className='Swipe-button' >❌</button> 
+        <button onClick={()=>{onCardLeftScreen('DogCard')}} className='Swipe-button' >❌</button> 
         <button className='Swipe-button' onClick={LikeDog} >💚</button>
       </div>
       </div>
