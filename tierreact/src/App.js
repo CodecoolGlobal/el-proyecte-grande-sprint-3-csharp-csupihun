@@ -26,8 +26,10 @@ const CardManager = (props) => {
 }
 
 function App() {
-  const [formstate, setFormState] = useState(false)
-  const ShowRegistration = () => {setFormState(!formstate)}
+  const [registerState, setRegisterState] = useState(false)
+  const [loginState, setLoginState] = useState(false)
+  const ShowRegistration = () => {setRegisterState(!registerState)}
+  const ShowLogin = () => {setLoginState(!loginState)}
   return (
     <div className="App">
       <header className="App-header">

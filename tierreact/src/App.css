@@ -10,6 +10,10 @@ body {
   overflow-x: hidden;
 }
 
+button {
+  cursor: pointer;
+}
+
 /* dog card */
 
 .Card-container {
