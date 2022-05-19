@@ -4,32 +4,22 @@ import Card from './Card.js';
 import logo from './image/TierPaw.png';
 import { useState, useEffect } from 'react';
 
-
-
-
-
-
-
 const CardManager = (props) => {
 
   const [isTop, setTop] = useState(1)
-  const [swipeState, setSwipeState] = useState(false)
-  const [swipeState2, setSwipeState2] = useState(false)
 
   const toggleTop = () => {
-    setTop(isTop === 1? -1 : 1)
+    setTop(isTop === 1  ? -1 : 1)
   }
     
   return (
   <div>
-    <p>{isTop}</p>
-    <div className='centering' style={{zIndex: isTop === 1? 1: -1}}>
+    <div className='centering' style={{zIndex: isTop}}>
       <Card onToggle={toggleTop} swipeState={props.swipeState} setSwipeState={props.setSwipeState}/>
     </div>
     <div className='centering' style={{zIndex: 0}}>
       <Card onToggle={toggleTop} swipeState={props.swipeState} setSwipeState={props.setSwipeState}/>
     </div>
-    
   </div>
   );
 }
