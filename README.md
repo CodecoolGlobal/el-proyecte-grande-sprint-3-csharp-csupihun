@@ -1,7 +1,7 @@
 <div align="center">
   
 # Ti&er
-<img src="https://github.com/CodecoolGlobal/el-proyecte-grande-sprint-3-csharp-csupihun/blob/development/Sample%20Photo.jpg" width="350">
+<img src="https://github.com/CodecoolGlobal/el-proyecte-grande-sprint-4-csharp-csupihun/blob/development/sample_dog_swiping.gif" width="350">
 </div>  
 
 ## Table of Contents
